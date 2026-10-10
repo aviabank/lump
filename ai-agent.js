@@ -4,6 +4,9 @@
   var state = { isOpen: false };
   function el(id) { return document.getElementById(id); }
 
+  var CONTRACT = '8SCxKwd6HcnP26Ee9zU8PEn6We7BajBGYQRY5sQppxuN';
+  var POOL = 'AcUowwzwf7CACppm9sr3zFLGQ9ncszkjFkx29MZxoyEP';
+
   var KB = {
     'what': {
       title: 'What is €LUMP?',
@@ -24,7 +27,7 @@
         '',
         '**Based on FIDIC Lump Sum contracts** — the global standard used by the World Bank for major infrastructure projects.',
         '',
-        '📄 Contract: `LUMPContractAddressHere`',
+        '📄 Contract: `' + CONTRACT + '`',
         '⛓ Chain: Solana (Token-2022, 1% transfer fee)'
       ].join('\n')
     },
@@ -34,13 +37,16 @@
         '**Buy €LUMP on Solana:**',
         '',
         '**1. Jupiter**',
-        '→ https://jup.ag/tokens/LUMPContractAddressHere',
+        '→ https://jup.ag/tokens/' + CONTRACT,
         '',
         '**2. OpenSea**',
-        '→ https://opensea.io/token/solana/LUMPContractAddressHere',
+        '→ https://opensea.io/token/solana/' + CONTRACT,
         '',
-        '**3. Binance Web3**',
-        '→ https://app.binance.com/uni-qr/web3-token-details?tokenCA=LUMPContractAddressHere',
+        '**3. Uniswap (Solana)**',
+        '→ https://app.uniswap.org/explore/tokens/solana/' + CONTRACT,
+        '',
+        '**4. Binance Web3**',
+        '→ https://app.binance.com/uni-qr/web3-token-details?tokenCA=' + CONTRACT,
         '',
         '💡 Recommend Jupiter for lowest slippage.'
       ].join('\n')
@@ -50,7 +56,14 @@
       answer: [
         '**€LUMP Contract (Solana)**',
         '',
-        '`LUMPContractAddressHere`',
+        '`' + CONTRACT + '`',
+        '',
+        '**Meteora Pool**',
+        '`' + POOL + '`',
+        '',
+        '**Verify on:**',
+        '· GeckoTerminal: https://www.geckoterminal.com/solana/pools/' + POOL,
+        '· OpenSea: https://opensea.io/token/solana/' + CONTRACT,
         '',
         '⚠️ Always verify contract before buying.'
       ].join('\n')
@@ -62,6 +75,10 @@
         '',
         '· Launch price: **€0.01**',
         '· Community target: **×100 → €1.00**',
+        '',
+        '**Live price:**',
+        '· GeckoTerminal: https://www.geckoterminal.com/solana/pools/' + POOL,
+        '· Jupiter: https://jup.ag/tokens/' + CONTRACT,
         '',
         '⚠️ The ×100 is a community-stated target, not a promise.'
       ].join('\n')
@@ -85,9 +102,7 @@
         '**€LUMP tokenizes this:**',
         '· Broker registers deal in smart contract',
         '· Commission locked as lump sum',
-        '· Auto-released when deal closes',
-        '',
-        'Based on the same logic the World Bank uses for billion-dollar projects.'
+        '· Auto-released when deal closes'
       ].join('\n')
     },
     'ecosystem': {
@@ -132,7 +147,7 @@
   var SUGGESTIONS = [
     { key: 'what',      label: '💼 What is €LUMP?' },
     { key: 'buy',       label: '🛒 How to buy?' },
-    { key: 'contract',  label: '🔗 Contract' },
+    { key: 'contract',  label: '🔗 Contract & Pool' },
     { key: 'price',     label: '💰 Price & Target' },
     { key: 'lump',      label: '📋 What is a Lump Sum?' },
     { key: 'ecosystem', label: '🌍 AviaTrust' },
@@ -163,7 +178,7 @@
       '<div class="avia-messages" id="avia-messages"></div>',
       '<div class="avia-suggestions" id="avia-suggestions"></div>',
       '<div class="avia-external">',
-      '  <a href="https://jup.ag/tokens/LUMPContractAddressHere" target="_blank">🔄 Jupiter</a>',
+      '  <a href="https://jup.ag/tokens/' + CONTRACT + '" target="_blank">🔄 Jupiter</a>',
       '  <a href="https://t.me/aviatrust" target="_blank">📱 TG</a>',
       '  <a href="https://x.com/aviatrust" target="_blank">🐦 X</a>',
       '</div>',
