@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>€LUMP — Commission Flow & Infrastructure</title>
+<link rel="icon" href="lump_logo.png" />
+<link rel="stylesheet" href="ai-agent.css" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: radial-gradient(ellipse at top, #1F0F18 0%, #0A0E27 50%, #060920 100%); color: #E0E6FF; line-height: 1.6; padding-top: 80px; padding-bottom: 60px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,14,39,0.92); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid rgba(233,30,99,0.25); padding: 10px 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo img { height: 36px; width: auto; border-radius: 50%; box-shadow: 0 0 15px rgba(233,30,99,0.5); }
+.logo-text { font-size: 20px; font-weight: 700; color: #fff; }
+nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+nav a { color: #8A94C8; text-decoration: none; font-size: 12px; font-weight: 500; }
+nav a:hover { color: #E91E63; }
+nav a.active { color: #E91E63; border-bottom: 2px solid #E91E63; }
+.btn-primary { background: linear-gradient(135deg, #E91E63 0%, #FF4081 100%); color: #fff; padding: 8px 18px; border-radius: 30px; font-weight: 700; text-decoration: none; font-size: 13px; box-shadow: 0 4px 15px rgba(233,30,99,0.4); }
+section { padding: 30px 0; }
+.section-header { text-align: center; margin-bottom: 30px; }
+.section-tag { display: inline-block; background: rgba(233,30,99,0.12); color: #E91E63; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; border: 1px solid rgba(233,30,99,0.2); }
+.section-header h1 { font-size: 36px; font-weight: 700; margin: 8px 0; }
+.section-header h1 .highlight { color: #E91E63; }
+.section-header p { color: #8A94C8; max-width: 600px; margin: 0 auto; }
+.flow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 30px 0; }
+.flow-step { background: linear-gradient(160deg, rgba(26,30,65,0.5), rgba(31,15,24,0.5)); border: 1px solid rgba(233,30,99,0.2); border-radius: 16px; padding: 22px; text-align: center; position: relative; }
+.flow-step .step-num { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #E91E63, #FF4081); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; box-shadow: 0 0 15px rgba(233,30,99,0.6); }
+.flow-step .step-icon { font-size: 32px; margin: 8px 0; filter: drop-shadow(0 0 12px rgba(233,30,99,0.6)); }
+.flow-step h4 { color: #fff; font-size: 15px; margin-bottom: 4px; }
+.flow-step p { color: #8A94C8; font-size: 12px; }
+.rwa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 24px; }
+.rwa-card { background: linear-gradient(160deg, rgba(26,30,65,0.5), rgba(31,15,24,0.5)); border: 1px solid rgba(233,30,99,0.15); border-radius: 16px; padding: 24px; transition: 0.3s; }
+.rwa-card:hover { border-color: #E91E63; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(233,30,99,0.2); }
+.rwa-card .rwa-icon { font-size: 40px; margin-bottom: 10px; filter: drop-shadow(0 0 15px rgba(233,30,99,0.6)); }
+.rwa-card h3 { color: #fff; font-size: 19px; margin-bottom: 6px; }
+.rwa-card p { color: #8A94C8; font-size: 14px; }
+.feature-badge { display: inline-block; background: rgba(233,30,99,0.15); color: #E91E63; padding: 2px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-top: 8px; margin-right: 4px; border: 1px solid rgba(233,30,99,0.3); }
+.image-block { max-width: 900px; margin: 30px auto; text-align: center; }
+.image-block img { max-width: 100%; border-radius: 20px; border: 1px solid rgba(233,30,99,0.2); box-shadow: 0 20px 60px rgba(233,30,99,0.2); }
+.contract-box { background: rgba(233,30,99,0.05); border: 1px solid rgba(233,30,99,0.2); border-radius: 12px; padding: 14px; margin: 20px 0; text-align: center; font-size: 13px; color: #8A94C8; font-family: 'Courier New', monospace; }
+.contract-box .addr { color: #E91E63; }
+.contract-box .copy-btn { background: transparent; border: none; color: #5A649A; cursor: pointer; font-size: 13px; }
+.contract-box .copy-btn:hover { color: #E91E63; }
+.contract-box .solscan-link { color: #5A649A; text-decoration: none; font-size: 13px; margin-left: 8px; }
+.contract-box .solscan-link:hover { color: #fff; }
+.counter-box { text-align: center; padding: 16px; background: rgba(233,30,99,0.05); border-radius: 12px; margin: 20px 0; font-size: 14px; color: #8A94C8; font-family: 'Courier New', monospace; }
+.counter-box .counter-visitors { color: #E91E63; font-weight: 600; }
+.counter-box .counter-clients { color: #FF4081; font-weight: 600; }
+.back-link { display: inline-block; margin-top: 16px; color: #E91E63; text-decoration: none; font-weight: 500; }
+footer { background: linear-gradient(180deg, #060920, #030510); padding: 20px 0; text-align: center; border-top: 1px solid rgba(233,30,99,0.2); margin-top: 20px; }
+footer p { color: #3A406A; font-size: 13px; }
+@media (max-width: 768px) { .section-header h1 { font-size: 26px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div class="logo"><img src="lump_logo.png" alt="€LUMP" /><span class="logo-text">LUMP €LUMP</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="fintech1.html">Use Cases</a>
+      <a href="fintech2.html" class="active">Commission Flow</a>
+      <a href="trade.html">Trade</a>
+      <a href="ecosystem.html">Ecosystem</a>
+    </nav>
+    <a href="buy.html" class="btn-primary">Buy €LUMP</a>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Commission Flow</span>
+      <h1>How <span class="highlight">€LUMP</span> Protects Brokers</h1>
+      <p>Five steps from deal start to commission release.</p>
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step"><div class="step-num">1</div><div class="step-icon">🤝</div><h4>Deal Start</h4><p>Broker introduces buyer & seller</p></div>
+      <div class="flow-step"><div class="step-num">2</div><div class="step-icon">💼</div><h4>Lock</h4><p>Commission fixed in smart contract</p></div>
+      <div class="flow-step"><div class="step-num">3</div><div class="step-icon">✈️</div><h4>Deliver</h4><p>Deal executes — aircraft, parts, lease</p></div>
+      <div class="flow-step"><div class="step-num">4</div><div class="step-icon">✅</div><h4>Verify</h4><p>Deal close confirmed on-chain</p></div>
+      <div class="flow-step"><div class="step-num">5</div><div class="step-icon">💰</div><h4>Release</h4><p>Commission auto-released to broker</p></div>
+    </div>
+
+    <div class="image-block">
+      <img src="lump_fintech_diagram.png" alt="€LUMP Commission Flow" />
+    </div>
+
+    <div class="rwa-grid">
+      <div class="rwa-card">
+        <div class="rwa-icon">💼</div>
+        <h3>FIDIC Lump Sum Standard</h3>
+        <p>Based on the same contract structure the World Bank uses for major infrastructure projects. Fixed commission, transparent terms.</p>
+        <span class="feature-badge">FIDIC</span>
+        <span class="feature-badge">World Bank</span>
+      </div>
+      <div class="rwa-card">
+        <div class="rwa-icon">🔒</div>
+        <h3>Locked Commission</h3>
+        <p>Commission fixed at deal start. Buyer and seller can't bypass the broker — the amount is already committed.</p>
+        <span class="feature-badge">Locked</span>
+        <span class="feature-badge">Immutable</span>
+      </div>
+      <div class="rwa-card">
+        <div class="rwa-icon">⚡</div>
+        <h3>Auto-Release on Close</h3>
+        <p>Once deal closes and conditions are met — commission released to broker in seconds. No chasing invoices.</p>
+        <span class="feature-badge">Auto</span>
+        <span class="feature-badge">Seconds</span>
+      </div>
+      <div class="rwa-card">
+        <div class="rwa-icon">⚖️</div>
+        <h3>Dispute Resolution</h3>
+        <p>If deal fails or parties disagree — on-chain arbitration. Transparent, fast, immutable.</p>
+        <span class="feature-badge">Arbitration</span>
+        <span class="feature-badge">On-chain</span>
+      </div>
+      <div class="rwa-card">
+        <div class="rwa-icon">🌍</div>
+        <h3>Global Payment Rails</h3>
+        <p>SWIFT, SEPA, CIPS, UPI, PIX, Fedwire — €LUMP connects broker commissions to all major payment systems.</p>
+        <span class="feature-badge">SWIFT</span>
+        <span class="feature-badge">SEPA</span>
+        <span class="feature-badge">CIPS</span>
+      </div>
+      <div class="rwa-card">
+        <div class="rwa-icon">📊</div>
+        <h3>Transparent Audit Trail</h3>
+        <p>Every commission recorded on-chain. No hidden margins, no disputes about "who owes what".</p>
+        <span class="feature-badge">Transparent</span>
+        <span class="feature-badge">Auditable</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 16px;">
+      <a href="fintech1.html" class="btn-primary" style="padding: 10px 24px;">← Back to Use Cases</a>
+    </div>
+
+    <div class="counter-box">
+      💼 Visitors: <span class="counter-visitors">2,030</span>
+      &nbsp;·&nbsp;
+      🤝 Clients: <span class="counter-clients">0</span>
+    </div>
+
+    <div class="contract-box">
+      📜 Contract: <span class="addr">LUMPContractAddressHere</span>
+      <button onclick="navigator.clipboard.writeText('LUMPContractAddressHere')" class="copy-btn">📋 Copy</button>
+      <a href="https://solscan.io/token/LUMPContractAddressHere" target="_blank" class="solscan-link">🔍 Solscan</a>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to €LUMP Home</a>
+  </div>
+</section>
+
+<footer><div class="container"><p>© 2026 AviaTrust. Built on Solana. | €LUMP</p></div></footer>
+
+<script src="counter.js"></script>
+<script src="ai-agent.js"></script>
+</body>
+</html>
