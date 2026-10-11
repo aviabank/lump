@@ -136,6 +136,104 @@ section { padding: 60px 0; position: relative; z-index: 1; }
 .image-block { max-width: 900px; margin: 30px auto; text-align: center; }
 .image-block img { max-width: 100%; border-radius: 20px; border: 1px solid rgba(233,30,99,0.2); box-shadow: 0 10px 60px rgba(233,30,99,0.2); }
 
+/* ===== ECOSYSTEM TOKENS ===== */
+.token-block-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #E91E63;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 30px 0 20px;
+}
+
+.token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.token-tile {
+  display: block;
+  padding: 20px 18px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #E0E6FF;
+  background: linear-gradient(160deg, rgba(26, 30, 65, 0.6) 0%, rgba(15, 20, 64, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.token-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.token-tile-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+.token-tile-symbol {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.token-tile-name {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.token-tile-desc {
+  font-size: 11px;
+  color: #8A94C8;
+  margin-bottom: 8px;
+}
+.token-tile-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.token-escr  { border-color: rgba(74,140,255,0.4); color: #4A8CFF; }
+.token-escr:hover  { border-color: #4A8CFF; box-shadow: 0 20px 40px rgba(74,140,255,0.25); }
+
+.token-dlct  { border-color: rgba(46,204,64,0.4); color: #2ECC40; }
+.token-dlct:hover  { border-color: #2ECC40; box-shadow: 0 20px 40px rgba(46,204,64,0.25); }
+
+.token-sblct { border-color: rgba(255,165,0,0.4); color: #FFA500; }
+.token-sblct:hover { border-color: #FFA500; box-shadow: 0 20px 40px rgba(255,165,0,0.25); }
+
+.token-lump  { border-color: rgba(233,30,99,0.7); color: #E91E63; box-shadow: 0 0 30px rgba(233,30,99,0.25); }
+.token-lump:hover  { border-color: #E91E63; box-shadow: 0 20px 40px rgba(233,30,99,0.35); }
+
+.token-b787  { border-color: rgba(143,175,63,0.4); color: #8FAF3F; }
+.token-b787:hover  { border-color: #8FAF3F; box-shadow: 0 20px 40px rgba(143,175,63,0.25); }
+
+.token-a350  { border-color: rgba(181,123,255,0.4); color: #B57BFF; }
+.token-a350:hover  { border-color: #B57BFF; box-shadow: 0 20px 40px rgba(181,123,255,0.25); }
+
+.token-c929  { border-color: rgba(229,72,106,0.4); color: #E5486A; }
+.token-c929:hover  { border-color: #E5486A; box-shadow: 0 20px 40px rgba(229,72,106,0.25); }
+
+.token-a220  { border-color: rgba(46,204,64,0.4); color: #2ECC40; }
+.token-a220:hover  { border-color: #2ECC40; box-shadow: 0 20px 40px rgba(46,204,64,0.25); }
+
+.token-e195  { border-color: rgba(255,165,0,0.4); color: #FFA500; }
+.token-e195:hover  { border-color: #FFA500; box-shadow: 0 20px 40px rgba(255,165,0,0.25); }
+
+.token-il96  { border-color: rgba(160,160,160,0.3); color: #A0A0A0; opacity: 0.7; }
+.token-il96:hover  { border-color: #A0A0A0; opacity: 1; }
+
+.token-tile-active {
+  border-width: 2px;
+}
+
 footer { background: linear-gradient(180deg, #060920 0%, #030510 100%); padding: 30px 0 16px; position: relative; z-index: 1; border-top: 1px solid rgba(233,30,99,0.2); margin-bottom: 40px; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-brand { display: flex; align-items: center; gap: 8px; }
@@ -356,6 +454,107 @@ footer { background: linear-gradient(180deg, #060920 0%, #030510 100%); padding:
   </div>
 </section>
 
+<!-- ===== ECOSYSTEM TOKENS ===== -->
+<section id="tokens">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">🌍 AviaTrust Ecosystem</span>
+      <h2>All <span class="highlight">Tokens</span></h2>
+      <p>Financial layer and aircraft layer on Solana.</p>
+    </div>
+
+    <div class="token-block-title">💼 Financial Layer</div>
+    <div class="token-grid">
+
+      <a href="https://aviabank.github.io/escr/" target="_blank" class="token-tile token-escr">
+        <div class="token-tile-icon">🔒</div>
+        <div class="token-tile-symbol">€ESCR</div>
+        <div class="token-tile-name">Escrow Token</div>
+        <div class="token-tile-desc">Trust layer · Escrow</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/dlct/" target="_blank" class="token-tile token-dlct">
+        <div class="token-tile-icon">📜</div>
+        <div class="token-tile-symbol">€DLCT</div>
+        <div class="token-tile-name">Documentary LC</div>
+        <div class="token-tile-desc">Trade finance</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/sblct/" target="_blank" class="token-tile token-sblct">
+        <div class="token-tile-icon">🛡️</div>
+        <div class="token-tile-symbol">€SBLCT</div>
+        <div class="token-tile-name">Standby LC</div>
+        <div class="token-tile-desc">Guarantee layer</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="index.html" class="token-tile token-lump token-tile-active">
+        <div class="token-tile-icon">💼</div>
+        <div class="token-tile-symbol">€LUMP</div>
+        <div class="token-tile-name">Lump Sum Token</div>
+        <div class="token-tile-desc">Fixed commission · You are here</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+    </div>
+
+    <div class="token-block-title">✈️ Aircraft Layer</div>
+    <div class="token-grid">
+
+      <a href="https://aviabank.github.io/b787/" target="_blank" class="token-tile token-b787">
+        <div class="token-tile-icon">✈️</div>
+        <div class="token-tile-symbol">€B787</div>
+        <div class="token-tile-name">Boeing 787</div>
+        <div class="token-tile-desc">Proven asset</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/a350/" target="_blank" class="token-tile token-a350">
+        <div class="token-tile-icon">✈️</div>
+        <div class="token-tile-symbol">€A350</div>
+        <div class="token-tile-name">Airbus A350</div>
+        <div class="token-tile-desc">Innovation asset</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/c929/" target="_blank" class="token-tile token-c929">
+        <div class="token-tile-icon">✈️</div>
+        <div class="token-tile-symbol">€C929</div>
+        <div class="token-tile-name">COMAC C929</div>
+        <div class="token-tile-desc">Horizon asset</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/a220/" target="_blank" class="token-tile token-a220">
+        <div class="token-tile-icon">✈️</div>
+        <div class="token-tile-symbol">€A220</div>
+        <div class="token-tile-name">Airbus A220</div>
+        <div class="token-tile-desc">New mass asset</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/e195/" target="_blank" class="token-tile token-e195">
+        <div class="token-tile-icon">✈️</div>
+        <div class="token-tile-symbol">€E195</div>
+        <div class="token-tile-name">Embraer E195</div>
+        <div class="token-tile-desc">Efficiency asset</div>
+        <div class="token-tile-price">€0.01</div>
+      </a>
+
+      <a href="https://aviabank.github.io/il96/" target="_blank" class="token-tile token-il96">
+        <div class="token-tile-icon">🔒</div>
+        <div class="token-tile-symbol">€IL96</div>
+        <div class="token-tile-name">Ilyushin Il-96</div>
+        <div class="token-tile-desc">Frozen until 2030</div>
+        <div class="token-tile-price">—</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <div class="ticker ticker-bottom">
   <div class="ticker-track">
     <span>💼 <span class="highlight-ticker">€LUMP = €0.01</span> • 100× to €1.00</span>
@@ -384,6 +583,9 @@ footer { background: linear-gradient(180deg, #060920 0%, #030510 100%); padding:
       <a href="index.html">€LUMP</a>
       <a href="fintech1.html">Fintech</a>
       <a href="ecosystem.html">Ecosystem</a>
+      <a href="https://aviabank.github.io/escr/" target="_blank">€ESCR</a>
+      <a href="https://aviabank.github.io/dlct/" target="_blank">€DLCT</a>
+      <a href="https://aviabank.github.io/sblct/" target="_blank">€SBLCT</a>
     </div>
     <div class="footer-social">
       <a href="https://opensea.io/token/solana/8SCxKwd6HcnP26Ee9zU8PEn6We7BajBGYQRY5sQppxuN" target="_blank">🖼️ OpenSea</a>
